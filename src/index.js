@@ -30,8 +30,7 @@ function showInfoCountry(res) {
 function showListCountry(res) {
     refs.countryList.insertAdjacentHTML('beforeend', res)
 }
-
-refs.input.addEventListener("input", debounce(e => {
+function onViewCountry(e) {
     refs.countryItem.innerHTML = ''
     refs.countryList.innerHTML = ''
     let value = e.target.value.trim()
@@ -54,5 +53,6 @@ refs.input.addEventListener("input", debounce(e => {
             })
             .catch(error => Notify.failure(error.message, { timeout: 700 }))
     }
-}, DEBOUNCE_DELAY))
+}
 
+refs.input.addEventListener("input", debounce(onViewCountry, DEBOUNCE_DELAY))
