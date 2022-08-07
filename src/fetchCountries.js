@@ -4,5 +4,4 @@ export default function fetchCountries(name) {
             if (responsive.status === 404) throw new Error("Oops, there is no country with that name")
             return responsive.json()
         })
-        .then(data => data)
 }
